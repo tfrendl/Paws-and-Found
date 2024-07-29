@@ -1,15 +1,4 @@
 <%- include('partials/header.ejs') %>
-  
-<body>
-  <h1>Pawsome Match</h1>
-  <hr>
-  <nav>
-    <a href="/"> Welcome </a>
-    <a href="/viewAllDogs" class="currentPage"> Dogs </a>
-    <a href="/aboutCats"> Cats </a>
-  </nav> 
-  <hr>
-
   <div id="displayBreeds">
       <select id="breeds" name="breeds">
         <option> Select Breed </option>
@@ -17,12 +6,12 @@
           <option value="<%= dogData.id %>"><%= dogData.name %></option>
         <% }) %>
       </select>
-    <div id="results">
+    <!-- <div id="results">
       <div id="photoSection">
         <img id="photoPlaceholder" src="/img/funnyPug.jpg" alt="Funny Pug telling the user to make a selection">
         <div id="credits">
           Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">charlesdeluvio</a> on <a href="https://unsplash.com/photos/black-dog-wearing-blue-denim-collar-K4mSJ7kc0As?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash (Edited: Added text) </a>
-        </div>
+        </div> -->
 
   </div>
 

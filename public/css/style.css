@@ -8,10 +8,16 @@ body {
   background-color: white;
   color: #552C1C;
   text-align: center;
-  padding: 20px;
+  
+  /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+  background-image: url('/img/dogAndCat.jpg'); 
+  
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-h1, nav {
+h1 {
   color: #272D35;
   text-align: center;
 }
@@ -19,20 +25,20 @@ h1, nav {
 h1 {
   font-size: 80px;
 }
-
+/* 
 nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;
-}
+} */
 
-a {
+/* a {
   text-decoration: none;
   color: #552C1C;
   font-size: 1.8em;
-}
+} */
 
 #displayBreeds {
   display: flex;
@@ -67,10 +73,10 @@ a {
   font-family: "Margarine", sans-serif;
 }
 
-nav a:hover, .currentPage {
+/* nav a:hover, .currentPage {
   border-bottom: 2px #B79E87 solid;
   transition: .9s;
-}
+} */
 
 footer {
   color: #BCB4CC;
