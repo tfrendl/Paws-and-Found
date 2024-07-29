@@ -1,0 +1,113 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Margarine", sans-serif;
+}
+
+body {
+  background-color: white;
+  color: #552C1C;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, nav {
+  color: #272D35;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #552C1C;
+  font-size: 1.8em;
+}
+
+#displayBreeds {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 70vh;
+}
+
+#photoPlaceholder {
+  max-height: 600px;
+  max-width: 600px;
+}
+
+#results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 1000px;
+  color: #B79E87;
+}
+
+#breedInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#breeds, #submitButton, input[type="text"] {
+  font-family: "Margarine", sans-serif;
+}
+
+nav a:hover, .currentPage {
+  border-bottom: 2px #B79E87 solid;
+  transition: .9s;
+}
+
+footer {
+  color: #BCB4CC;
+}
+
+#nameTitle {
+  font-size: 25px;
+  color: #5C3A11;
+}
+
+#welcomeText {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 30px;
+  color: #B79E87;
+}
+
+select {
+  width: 400px;
+  height: 50px;
+  font-size: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #272D35;
+}
+
+#credits {
+  font-size: 7px;
+}
+
+h3 {
+  color:#B79E87;
+}
+
+#inputError {
+  color: red;
+}
