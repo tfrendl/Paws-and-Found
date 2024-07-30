@@ -55,7 +55,7 @@ async function displayBreedInfo() {
     }
   });
   data = await response.json();
-  breedInfo.innerHTML += `<img src="${data.url}" width="250">`;
+  breedInfo.innerHTML += `<img src="${data.url}">`;
 }
 
 async function displayCatBreedInfo() {
@@ -96,5 +96,5 @@ async function displayCatBreedInfo() {
     }
   });
   data = await response.json();
-  breedInfo.innerHTML += `<img src="${data.url}" width="250">`;
+  breedInfo.innerHTML += `<img src="${data.url}">`;
 }

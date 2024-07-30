@@ -1,20 +1,42 @@
 html {
   height: 100%;
   width: 100%;
-  font-family: "Margarine", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+#websiteHeader {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+
+/* .background-img {
+  position: relative;
+} */
+
+.background-img::after {
+  /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('/img/dogAndCat.jpg'); 
+  background-size: cover;
+  background-position: center;
 }
 
 body {
-  background-color: white;
   color: #552C1C;
   text-align: center;
-  
-  /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
-  background-image: url('/img/dogAndCat.jpg'); 
-  
-  background-position: center;
-  background-size: cover;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
   background-repeat: no-repeat;
+}
+
+#welcomeText {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 h1 {
@@ -47,11 +69,17 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   height: 70vh;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 #photoPlaceholder {
   max-height: 600px;
   max-width: 600px;
+}
+
+.customSelect {
+  font-family: "Quicksand", sans-serif;
 }
 
 #results {
@@ -70,7 +98,8 @@ nav {
 }
 
 #breeds, #submitButton, input[type="text"] {
-  font-family: "Margarine", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 /* nav a:hover, .currentPage {
@@ -80,6 +109,8 @@ nav {
 
 footer {
   color: #BCB4CC;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 #nameTitle {

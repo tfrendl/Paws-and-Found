@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs') %>
-  <div id="displayBreeds">
+  <div id="displayBreeds" class="customSelect">
       <select id="breeds" name="breeds">
         <option> Select Breed </option>
         <% dogData.forEach(dogData => { %>
@@ -44,5 +44,7 @@
           </div>
         </div>
       </div>
+          </div>
+          </section>
       <script src="/js/scripts.js"></script>
 <%- include('partials/footer.ejs') %> 

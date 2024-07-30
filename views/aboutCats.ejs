@@ -1,20 +1,12 @@
 <%- include('partials/header.ejs') %>
-  <div id="displayBreeds">
+  <div id="displayBreeds" class="customSelect">
       <select id="catBreeds" name="catBreeds">
         <option> Select Breed </option>
         <% catData.forEach(catData => { %>
           <option value="<%=catData.id%>"><%= catData.name %></option>
         <% }) %>
       </select>
-    <!-- <div id="results">
-      <div id="photoSection">
-        <img id="photoPlaceholder" src="/img/funnyPug.jpg" alt="Funny Pug telling the user to make a selection">
-        <div id="credits">
-          Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">charlesdeluvio</a> on <a href="https://unsplash.com/photos/black-dog-wearing-blue-denim-collar-K4mSJ7kc0As?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash (Edited: Added text) </a>
-        </div> -->
-
   </div>
-
       <!-- Modal container using Bootstrap to display breed info -->
       <div id="breedInfoModal" class="modal" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -43,5 +35,8 @@
           </div>
         </div>
       </div>
+    </div>
+    </section>
       <script src="/js/scripts.js"></script>
+          
 <%- include('partials/footer.ejs') %> 
