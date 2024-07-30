@@ -1,19 +1,13 @@
 html {
   height: 100%;
-  width: 100%;
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-}
-
-#websiteHeader {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
 
 
-/* .background-img {
-  position: relative;
-} */
+.petScroller {
+  
+}
 
 .background-img::after {
   /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
@@ -28,10 +22,16 @@ html {
 
 body {
   color: #552C1C;
+  height: 100%;
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   background-repeat: no-repeat;
+}
+
+#websiteHeader {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 #welcomeText {
@@ -39,14 +39,6 @@ body {
   font-optical-sizing: auto;
 }
 
-h1 {
-  color: #272D35;
-  text-align: center;
-}
-
-h1 {
-  font-size: 80px;
-}
 /* 
 nav {
   display: flex;
@@ -71,6 +63,7 @@ nav {
   height: 70vh;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
+  flex: 1;
 }
 
 #photoPlaceholder {
@@ -78,9 +71,6 @@ nav {
   max-width: 600px;
 }
 
-.customSelect {
-  font-family: "Quicksand", sans-serif;
-}
 
 #results {
   display: flex;
@@ -108,9 +98,10 @@ nav {
 } */
 
 footer {
-  color: #BCB4CC;
+  color: #dfc9bb;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
+  padding: 20px 0;
 }
 
 #nameTitle {
@@ -123,9 +114,12 @@ footer {
   text-align: center;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 50vh;
-  font-size: 30px;
-  color: #B79E87;
+  color:  white;
+  text-shadow: 3px 3px 2px black;
+  padding: 40px;
+  padding-top: 100px;
 }
 
 select {
@@ -134,6 +128,7 @@ select {
   font-size: 20px;
   margin-bottom: 40px;
   text-align: center;
+  font-family: "Quicksand", sans-serif;
   color: #272D35;
 }
 

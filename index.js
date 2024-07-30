@@ -14,6 +14,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/adoptableDogs', (req, res) => {
+  res.render('adoptableDogs');
+});
+
+app.get('/adoptableCats', (req, res) => {
+  res.render('adoptableCats');
+});
+
 app.get('/viewAllDogs', async (req, res) => {
   let response = await fetch(baseUrl, {
     headers: {
@@ -35,21 +43,6 @@ app.get('/aboutCats', async (req, res) => {
 
   res.render('aboutCats', {catData: data});
 });
-
-// // display dog info after dog breed chosen
-// app.post('/viewAllDogs', async (req, res) => {
-//   let dogBreedId = req.query.breeds;
-//   console.log(dogBreedId);
-//   let url = `${baseUrl}/${dogBreedId}`;
-//   let response = await fetch(url, {
-//     headers: {
-//       'x-api-key': key
-//     }
-//   });
-//   let data = await response.json();
-
-//   res.render('viewAllDogs', {chosenBreed: data});
-// })
 
 app.listen(3000, () => {
   console.log('server started');
