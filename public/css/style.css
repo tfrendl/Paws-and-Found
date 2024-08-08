@@ -10,11 +10,6 @@ html {
 }
 
 
-
-.petScroller {
-  
-}
-
 .background-img::after {
   /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
   content: '';
@@ -150,8 +145,6 @@ h3 {
   color: red;
 }
 
-
-
 /* new since august 6 */
 .chatbot {
   position: fixed;
@@ -168,6 +161,8 @@ h3 {
               0 32px 64px -48pb rgba(0,0,0,0.5);
   transition: all 0.1s ease;
   transform-origin: bottom right;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .show-chatbot .chatbot {
@@ -177,7 +172,7 @@ h3 {
 }
 
 .chatbot header {
-  background: #724ae8;
+  background: #904c68;
   padding: 16px 0;
   text-align: center;
   position: relative;
@@ -206,12 +201,13 @@ h3 {
 
 .chatbox .chat {
   display: flex;
+  color: white;
 }
 
 .chatbox .incoming span {
   height: 32px;
   width: 32px;
-  background: #724ae8;
+  background: #904c68;
   color: #ffff;
   text-align: center;
   line-height: 32px;
@@ -225,8 +221,13 @@ h3 {
   margin: 20px 0;
 }
 
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
 .chatbox .chat p {
-  background: #724ae8;
+  background: #904c68;
   max-width: 75%;
   padding: 12px 16px;
   border-radius: 10px 10px 0 10px;
@@ -268,10 +269,10 @@ h3 {
 }
 
 .chat-input span {
-  color: #724ae8;
+  color: #904c68;
   font-size: 1.35em;
   cursor: pointer;
-  background: red;
+  background: white;
   align-self: flex-end;
   height: 55px;
   line-height: 55px;
@@ -295,7 +296,7 @@ h3 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: #724ae8;
+  background: #4c7390;
   border-radius: 50%;
   transition: all 0.2s ease;
 }

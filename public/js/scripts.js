@@ -15,19 +15,17 @@ let userMessage;
 const inputInitHeight = chatInput.scrollHeight;
 
 
-
 const createChatLi = (message, className) => {
   // create a chat <li> element with passed message and className
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", className);
-  let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+  let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined"><img alt="cat icon" class="icon" src="../img/cat3.png"/></span><p></p>`;
   chatLi.innerHTML = chatContent;
   chatLi.querySelector("p").textContent = message; // prevent use of html tags in chat incoming
   return chatLi;
 };
 
 const generateResponse = async (incomingChatLi) => {
-
   const userQuestion = incomingChatLi;
   console.log("userquestionis",userQuestion);
 
@@ -50,7 +48,6 @@ const generateResponse = async (incomingChatLi) => {
     console.log(assistantMessage.response);
     chatbox.appendChild(createChatLi(assistantMessage.response, "incoming"));
     chatbox.scrollTo(0, chatbox.scrollHeight);
-  
   } catch (error) {
     console.log("Some error", error);
   };
@@ -84,7 +81,8 @@ const handleChat = () => {
      const incomingChatLi = createChatLi("Thinking...","incoming");
      chatbox.appendChild(incomingChatLi);
      chatbox.scrollTo(0, chatbox.scrollHeight);
-     generateResponse(userMessage);
+     console.log("currently commenting out line 85 so as not to use tokens");
+     // generateResponse(userMessage);
    }, 600);
 }
 
@@ -104,14 +102,15 @@ chatInput.addEventListener("keydown", (event) => {
   }
 });
 
-
-
-
-
-
 chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 sendChatBtn.addEventListener("click", handleChat);
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+
+
+
+
 
 
 
