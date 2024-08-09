@@ -1,4 +1,4 @@
-const baseUrl ='https://api.thedogapi.com/v1/breeds';
+const dogBaseUrl ='https://api.thedogapi.com/v1/breeds';
 const key = 'live_2ePwG6Vr7gnUJfkRxf7WRSW6wKZNaX25WXemQm6XbVdMqXuc8t4oOar8JOt1o1yM';
 
 const catBaseUrl = 'https://api.thecatapi.com/v1/breeds';
@@ -114,14 +114,14 @@ app.get('/adoptableCats', async (req, res) => {
 });
 
 app.get('/viewAllDogs', async (req, res) => {
-  let response = await fetch(baseUrl, {
+  let response = await fetch(dogBaseUrl, {
     headers: {
       'x-api-key': key
     }
   });
   let data = await response.json();
   
-  res.render('viewAllDogs', {dogData: data});
+  res.render('aboutDogs', {dogData: data});
 });
 
 app.get('/aboutCats', async (req, res) => {
@@ -271,6 +271,34 @@ app.get('/api/signup/profilePhotos', async function (req, res) {
   let imageUrl = data.urls.small;
   //console.log(imageUrl);
   res.send({imageUrl});
+});
+
+// local cat API
+app.get('/api/cat/:catId', async function (req, res) {
+  let catId = req.params.catId;
+
+  let url = `${catBaseUrl}/${catId}`;
+  let response = await fetch(url, {
+    headers: {
+      'x-api-key': key
+    }
+  });
+  let data = await response.json();
+  res.send(data);
+});
+
+// local dog API
+app.get('/api/dog/:dogId', async function (req, res) {
+  let dogId = req.params.dogId;
+
+  let url = `${dogBaseUrl}/${dogId}`;
+  let response = await fetch(url, {
+    headers: {
+      'x-api-key': key
+    }
+  });
+  let data = await response.json();
+  res.send(data);
 });
 
 // OpenAI response

@@ -6,9 +6,7 @@ html {
 
 #logo{
   padding: 130px;
-
 }
-
 
 .background-img::after {
   /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
@@ -19,6 +17,11 @@ html {
   background-image: url('/img/dogAndCat.jpg'); 
   background-size: cover;
   background-position: center;
+}
+
+.modal {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
 }
 
 body {
@@ -39,21 +42,6 @@ body {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
-
-/* 
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-} */
-
-/* a {
-  text-decoration: none;
-  color: #552C1C;
-  font-size: 1.8em;
-} */
 
 #displayBreeds, .settingsForm {
   display: flex;

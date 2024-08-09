@@ -133,28 +133,23 @@ async function displayBreedInfo() {
   const myModal = new bootstrap.Modal(document.getElementById('breedInfoModal'));
   myModal.show();
   
+  // call local dog API
   let dogId = document.getElementById("breeds").value;
-  console.log(dogId);
-  // call dog API
-  let url = `${baseUrl}breeds/${dogId}`;
-  let response = await fetch(url, {
-    headers: {
-      'x-api-key': key
-    }
-  });
+  let url = `api/dog/${dogId}`;
+  let response = await fetch(url);
   let data = await response.json();
-  console.log(data.name);
+  //console.log(data.name);
 
   // display info
-  let breedInfo = document.getElementById("breedInfo");
   let breedDetails = document.getElementById("breedDetails");
-  breedInfo.innerHTML = `<h2> ${data.name}</h2>`;
-  breedDetails.innerHTML = `Weight: ${data.weight.metric} <br>`;
-  breedDetails.innerHTML += `Height: ${data.height.metric} <br>`;
-  breedDetails.innerHTML += `Life Span: ${data.life_span} <br> `;
-  breedDetails.innerHTML += `Temperament: ${data.temperament} <br> `;
+  breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h3>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Height</span>: ${data.height.metric} inches<br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span}<br> `;
+  breedDetails.innerHTML += `<span class="fw-bold">Temperament</span>: ${data.temperament} <br> `;
 
   // get dog image
+  let breedInfo = document.getElementById("breedInfo");
   let image_reference = data.reference_image_id;
   console.log(image_reference);
   url = `${baseUrl}images/${image_reference}`;
@@ -164,7 +159,7 @@ async function displayBreedInfo() {
     }
   });
   data = await response.json();
-  breedInfo.innerHTML += `<img src="${data.url}">`;
+  breedInfo.innerHTML = `<img src="${data.url}" class="rounded">`;
 }
 
 async function displayCatBreedInfo() {
@@ -172,31 +167,25 @@ async function displayCatBreedInfo() {
   const myModal = new bootstrap.Modal(document.getElementById('breedInfoModal'));
   myModal.show();
 
+  // call local cat API
   let catId = document.getElementById("catBreeds").value;
-  console.log(catId);
-  // call cat API
-  let url = `${catBaseUrl}breeds/${catId}`;
-  let response = await fetch(url, {
-    headers: {
-      'x-api-key': key
-    }
-  });
+  let url = `/api/cat/${catId}`;
+  let response = await fetch(url);
   let data = await response.json();
-  console.log(data.name);
+  //console.log(data.name);
 
-  // display info
-  let breedInfo = document.getElementById("breedInfo");
+  // display breed info
   let breedDetails = document.getElementById("breedDetails");
-  breedInfo.innerHTML = `<h2> ${data.name}</h2>`;
-  breedDetails.innerHTML = `Weight: ${data.weight.metric} <br>`;
-  breedDetails.innerHTML += `Life Span: ${data.life_span} <br> `;
-  breedDetails.innerHTML += `Temperament: ${data.temperament} <br> `;
-  breedDetails.innerHTML += `Affection Level: ${data.affection_level} <br>`;
-  breedDetails.innerHTML += `Origin: ${data.origin} <br>`;
-  breedDetails.innerHTML += `Description: ${data.description} <br>`;
-  // breedDetails.innerHTML += `More resources: ${data.vetstreet_url} <br> ${data.vcahospitals_url} <br>`;
+  breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h2>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span} years<br> `;
+  breedDetails.innerHTML += `<span class="fw-bold">Temperament</span>: ${data.temperament} <br> `;
+  breedDetails.innerHTML += `<span class="fw-bold">Affection Level</span>: ${data.affection_level}/5 <br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Origin</span>: ${data.origin} <br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Description</span>: ${data.description} <br>`;
 
-  // get cat image
+  // display cat image
+  let breedInfo = document.getElementById("breedInfo");
   let image_reference = data.reference_image_id;
   url = `${catBaseUrl}images/${image_reference}`;
   response = await fetch(url, {
@@ -205,6 +194,5 @@ async function displayCatBreedInfo() {
     }
   });
   data = await response.json();
-  breedInfo.innerHTML += `<img src="${data.url}">`;
+  breedInfo.innerHTML = `<img src="${data.url}" class="rounded">`;
 }
-
