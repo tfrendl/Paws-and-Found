@@ -106,14 +106,6 @@ chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("
 sendChatBtn.addEventListener("click", handleChat);
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 
-
-
-
-
-
-
-
-
 // event listeners
 document.addEventListener('DOMContentLoaded', function() {
   let dogBreedDropdown = document.getElementById("breeds");
@@ -140,7 +132,7 @@ async function displayBreedInfo() {
   let data = await response.json();
   //console.log(data.name);
 
-  // display info
+  // display breed info
   let breedDetails = document.getElementById("breedDetails");
   breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h3>`;
   breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
@@ -148,16 +140,12 @@ async function displayBreedInfo() {
   breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span}<br> `;
   breedDetails.innerHTML += `<span class="fw-bold">Temperament</span>: ${data.temperament} <br> `;
 
-  // get dog image
+  // display dog image
   let breedInfo = document.getElementById("breedInfo");
   let image_reference = data.reference_image_id;
   console.log(image_reference);
-  url = `${baseUrl}images/${image_reference}`;
-  response = await fetch(url, {
-    headers: {
-      'x-api-key': key
-    }
-  });
+  url = `/api/dogImg/${image_reference}`;
+  response = await fetch(url);
   data = await response.json();
   breedInfo.innerHTML = `<img src="${data.url}" class="rounded">`;
 }
@@ -187,12 +175,8 @@ async function displayCatBreedInfo() {
   // display cat image
   let breedInfo = document.getElementById("breedInfo");
   let image_reference = data.reference_image_id;
-  url = `${catBaseUrl}images/${image_reference}`;
-  response = await fetch(url, {
-    headers: {
-      'x-api-key': key
-    }
-  });
+  url = `/api/catImg/${image_reference}`;
+  response = await fetch(url);
   data = await response.json();
   breedInfo.innerHTML = `<img src="${data.url}" class="rounded">`;
 }

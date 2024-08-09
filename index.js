@@ -1,7 +1,7 @@
-const dogBaseUrl ='https://api.thedogapi.com/v1/breeds';
+const dogBaseUrl ='https://api.thedogapi.com/v1/';
 const key = 'live_2ePwG6Vr7gnUJfkRxf7WRSW6wKZNaX25WXemQm6XbVdMqXuc8t4oOar8JOt1o1yM';
 
-const catBaseUrl = 'https://api.thecatapi.com/v1/breeds';
+const catBaseUrl = 'https://api.thecatapi.com/v1/';
 const catKey = 'live_VtZnItKb31weSk4mWWZfmI9k5g3QgjqA0IqvD565GQy6itmqlZ7cw2z5wcvj3TAH';
 
 
@@ -114,7 +114,8 @@ app.get('/adoptableCats', async (req, res) => {
 });
 
 app.get('/viewAllDogs', async (req, res) => {
-  let response = await fetch(dogBaseUrl, {
+  let dogUrl = dogBaseUrl + "breeds";
+  let response = await fetch(dogUrl, {
     headers: {
       'x-api-key': key
     }
@@ -125,7 +126,8 @@ app.get('/viewAllDogs', async (req, res) => {
 });
 
 app.get('/aboutCats', async (req, res) => {
-  let response = await fetch(catBaseUrl, {
+  let catUrl = catBaseUrl + "breeds";
+  let response = await fetch(catUrl, {
     headers: {
       'x-api-key': catKey
     }
@@ -277,7 +279,21 @@ app.get('/api/signup/profilePhotos', async function (req, res) {
 app.get('/api/cat/:catId', async function (req, res) {
   let catId = req.params.catId;
 
-  let url = `${catBaseUrl}/${catId}`;
+  let url = `${catBaseUrl}breeds/${catId}`;
+  let response = await fetch(url, {
+    headers: {
+      'x-api-key': key
+    }
+  });
+  let data = await response.json();
+  res.send(data);
+});
+
+
+app.get('/api/catImg/:imageReference', async function (req, res) {
+  let imageReference = req.params.imageReference;
+
+  let url = `${catBaseUrl}images/${imageReference}`;
   let response = await fetch(url, {
     headers: {
       'x-api-key': key
@@ -291,7 +307,20 @@ app.get('/api/cat/:catId', async function (req, res) {
 app.get('/api/dog/:dogId', async function (req, res) {
   let dogId = req.params.dogId;
 
-  let url = `${dogBaseUrl}/${dogId}`;
+  let url = `${dogBaseUrl}breeds/${dogId}`;
+  let response = await fetch(url, {
+    headers: {
+      'x-api-key': key
+    }
+  });
+  let data = await response.json();
+  res.send(data);
+});
+
+app.get('/api/dogImg/:imageReference', async function (req, res) {
+  let imageReference = req.params.imageReference;
+
+  let url = `${dogBaseUrl}images/${imageReference}`;
   let response = await fetch(url, {
     headers: {
       'x-api-key': key
