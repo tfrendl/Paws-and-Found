@@ -66,46 +66,50 @@ app.get('/adoptableDogs', (req, res) => {
   res.render('adoptableDogs');
 });
 
-app.get('/adoptableCats', async (req, res) => {
-  let response = await fetch(rescueGroupUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      apikey: `${process.env.RG_API_KEY}`,
-      objectType: "animals",
-      objectAction: "publicSearch",
-      search: {
-        resultStart: 0,
-        resultLimit: 20,
-        resultSort: "animalID",
-        resultOrder: "asc",
-        calcFoundRows: "Yes", 
-        filters: [ 
-          {
-            fieldName: "animalSpecies",
-            operation: "equals",
-            criteria: "cat"
-          },
-          {
-            fieldName: "animalGeneralSizePotential",
-            operation: 'equals',
-            criteria: 'small'
-          }
-        ]
-      },
-      fields: ['animalID', 'animalOrgID', 'animalName', 'animalBreed']
-      })
-    });
-  
-  let data = await response.json();
-  if (data.status === 'error') {
-    console.error(data.messages);
-  }
-  console.log(data.foundRows);
+app.get('/adoptableCats', (req, res) => {
   res.render('adoptableCats');
 });
+
+//app.get('/adoptableCats', async (req, res) => {
+//   let response = await fetch(rescueGroupUrl, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       apikey: `${process.env.RG_API_KEY}`,
+//       objectType: "animals",
+//       objectAction: "publicSearch",
+//       search: {
+//         resultStart: 0,
+//         resultLimit: 20,
+//         resultSort: "animalID",
+//         resultOrder: "asc",
+//         calcFoundRows: "Yes", 
+//         filters: [ 
+//           {
+//             fieldName: "animalSpecies",
+//             operation: "equals",
+//             criteria: "cat"
+//           },
+//           {
+//             fieldName: "animalGeneralSizePotential",
+//             operation: 'equals',
+//             criteria: 'small'
+//           }
+//         ]
+//       },
+//       fields: ['animalID', 'animalOrgID', 'animalName', 'animalBreed']
+//       })
+//     });
+  
+//   let data = await response.json();
+//   if (data.status === 'error') {
+//     console.error(data.messages);
+//   }
+//   console.log(data.foundRows);
+//   res.render('adoptableCats');
+// });
 
 app.get('/viewAllDogs', async (req, res) => {
   let dogUrl = dogBaseUrl + "breeds";
