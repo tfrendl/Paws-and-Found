@@ -1,12 +1,6 @@
 const dogBaseUrl ='https://api.thedogapi.com/v1/';
-const key = 'live_2ePwG6Vr7gnUJfkRxf7WRSW6wKZNaX25WXemQm6XbVdMqXuc8t4oOar8JOt1o1yM';
-
 const catBaseUrl = 'https://api.thecatapi.com/v1/';
-const catKey = 'live_VtZnItKb31weSk4mWWZfmI9k5g3QgjqA0IqvD565GQy6itmqlZ7cw2z5wcvj3TAH';
-
-
 const rescueGroupUrl = "https://api.rescuegroups.org/http/v2.json";
-const rgKey = '3eA6vSco';
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -79,7 +73,7 @@ app.get('/adoptableCats', async (req, res) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      apikey: "3eA6vSco",
+      apikey: `${process.env.RG_API_KEY}`,
       objectType: "animals",
       objectAction: "publicSearch",
       search: {
@@ -117,7 +111,7 @@ app.get('/viewAllDogs', async (req, res) => {
   let dogUrl = dogBaseUrl + "breeds";
   let response = await fetch(dogUrl, {
     headers: {
-      'x-api-key': key
+      'x-api-key': process.env.DOG_API_KEY
     }
   });
   let data = await response.json();
@@ -129,7 +123,7 @@ app.get('/aboutCats', async (req, res) => {
   let catUrl = catBaseUrl + "breeds";
   let response = await fetch(catUrl, {
     headers: {
-      'x-api-key': catKey
+      'x-api-key': process.env.CAT_API_KEY
     }
   });
   let data = await response.json();
@@ -267,7 +261,7 @@ app.get('/logout', (req, res) => {
 // local API
 app.get('/api/signup/profilePhotos', async function (req, res) {
   let url = 
-  "https://api.unsplash.com/photos/random/?client_id=7756a1e81f817c186cf57294e1c19b37b49c54b8f34e7c499ee0ce5cd86cd16e&featured=true&query=animals";
+  `https://api.unsplash.com/photos/random/?client_id=${process.env.UNSPLASH_CLIENT_ID}&featured=true&query=animals`;
   let response = await fetch(url);
   let data = await response.json();
   let imageUrl = data.urls.small;
@@ -282,7 +276,7 @@ app.get('/api/cat/:catId', async function (req, res) {
   let url = `${catBaseUrl}breeds/${catId}`;
   let response = await fetch(url, {
     headers: {
-      'x-api-key': key
+      'x-api-key': process.env.CAT_API_KEY
     }
   });
   let data = await response.json();
@@ -296,7 +290,7 @@ app.get('/api/catImg/:imageReference', async function (req, res) {
   let url = `${catBaseUrl}images/${imageReference}`;
   let response = await fetch(url, {
     headers: {
-      'x-api-key': key
+      'x-api-key': process.env.CAT_API_KEY
     }
   });
   let data = await response.json();
@@ -310,7 +304,7 @@ app.get('/api/dog/:dogId', async function (req, res) {
   let url = `${dogBaseUrl}breeds/${dogId}`;
   let response = await fetch(url, {
     headers: {
-      'x-api-key': key
+      'x-api-key': process.env.DOG_API_KEY
     }
   });
   let data = await response.json();
@@ -323,7 +317,7 @@ app.get('/api/dogImg/:imageReference', async function (req, res) {
   let url = `${dogBaseUrl}images/${imageReference}`;
   let response = await fetch(url, {
     headers: {
-      'x-api-key': key
+      'x-api-key': process.env.DOG_API_KEY
     }
   });
   let data = await response.json();

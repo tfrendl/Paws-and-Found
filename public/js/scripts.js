@@ -1,9 +1,6 @@
 // Global variables
 const baseUrl ='https://api.thedogapi.com/v1/';
-const key = 'live_2ePwG6Vr7gnUJfkRxf7WRSW6wKZNaX25WXemQm6XbVdMqXuc8t4oOar8JOt1o1yM';
-
 const catBaseUrl = 'https://api.thecatapi.com/v1/';
-const catKey = 'live_VtZnItKb31weSk4mWWZfmI9k5g3QgjqA0IqvD565GQy6itmqlZ7cw2z5wcvj3TAH';
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput = document.querySelector(".chat-input textarea");
