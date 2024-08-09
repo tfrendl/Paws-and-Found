@@ -32,10 +32,16 @@ const session = require('express-session');
 app.set('trust proxy', 1) // trust first
 app.use(session({
   secret: 'secret_key',  // secret can be whatever you want
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { secure: true }
 }))
+
+app.use(function(req, res, next) {
+  res.locals.username = req.session.username;
+  res.locals.loggedIn = req.session.authenticated;
+  next();
+});
 
 // use for parsing data from a form using the POST method
 app.use(express.urlencoded({extended:true})); 
