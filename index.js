@@ -14,15 +14,35 @@ dotenv.config();
 // OpenAI
 const OpenAI = require("openai");
 
+// database
+const pool = require("./dbPool.js");
+const mysql = require('mysql');
 
-
+// bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const express = require('express');
 // const fetch = require("node-fetch); ") // npm i node-fetch@2.6; allows to fetch data from web api's
 const app = express();
+
+// sessions
+const session = require('express-session'); 
+// https://github.com/expressjs/session#readme
+app.set('trust proxy', 1) // trust first
+app.use(session({
+  secret: 'secret_key',  // secret can be whatever you want
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+// use for parsing data from a form using the POST method
+app.use(express.urlencoded({extended:true})); 
 
 app.use(express.json());
 const bodyParser = require('body-parser');
@@ -108,7 +128,88 @@ app.get('/aboutCats', async (req, res) => {
   res.render('aboutCats', {catData: data});
 });
 
- app.post('/assistantResponse', async (req, res) => {
+//process sign-up request
+app.post("/user/new", async function(req, res) {
+  let fName = req.body.firstName;
+  let lName = req.body.lastName;
+  let email = req.body.emailAddress.toLowerCase();
+  let password = req.body.password;
+  let verifyPassword = req.body.confirmPassword;
+  let message = "";
+
+  // verify passwords match
+  if (password == verifyPassword) {
+    // verify email address does not already exist in database
+    let sql = `SELECT * FROM pf_users WHERE email = ?`;
+    let data = await executeSQL(sql, [email]);
+    if (data.length > 0) {
+      message = "Email address already exists! Please try again.";
+    } else {
+      // generate bcrypted password
+      let bcryptPassword = generateBcrypt(password);
+      let sql = `INSERT INTO pf_users (firstName, lastName, email, password)
+                    VALUES (?, ?, ?, ? )`;
+      let params = [fName, lName, email, bcryptPassword];
+      await executeSQL(sql, params);
+      message = "Sign up successful! Please sign in. ";
+    }
+  } else {
+    message = "Passwords do not match! Please try again. ";
+  }
+  res.render('index', {message: message});
+});
+
+// plan text password -> bcrypt password
+function generateBcrypt(plainTextPassword) {
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hash = bcrypt.hashSync(plainTextPassword, salt);
+  return hash;
+}
+
+// process login request
+app.post("/user/login", async function(req, res) {
+  let email = req.body.emailAddress.toLowerCase();
+  let password = req.body.password;
+  let passwordHash = "";
+  let message = "";
+
+  console.log(email);
+  
+  let sql = `SELECT * FROM pf_users WHERE email = ?`;
+  let data = await executeSQL(sql, [email]);
+
+  // verify username with that email address exists
+  if (data.length > 0) {
+    passwordHash = data[0].password;
+    const matchPassword = await bcrypt.compare(password, passwordHash);
+    console.log(matchPassword);
+
+    // verify correct password
+    if (matchPassword) {
+      req.session.authenticated = true;
+      res.locals.loggedIn = await req.session.authenticated;
+      req.session.username = data[0].firstName + " " + data[0].lastName;
+      req.session.userId = data[0].userId;
+      message = `Welcome back, ${req.session.username}! `;
+    } else {
+      message = "Incorrect Password  ";
+    }
+  } else {
+    message = "Email address not found  ";
+  }
+  res.render('index', {message:message});
+});
+
+// user log out
+app.get('/logout', (req, res) => {
+  req.session.authenticated = false;
+  req.session.destroy();   // remove the session, including all variables
+  res.redirect('/');
+});
+
+
+// OpenAI response
+app.post('/assistantResponse', async (req, res) => {
    const userQuestion = req.body.question; 
    console.log("Received question", userQuestion);
 
@@ -148,6 +249,27 @@ app.get('/aboutCats', async (req, res) => {
 
 
  let port = process.env.PORT || 3000;
+
+
+ // Functions
+async function executeSQL(sql, params) {
+  return new Promise(function (resolve, reject) {
+    // promise will return a value in the future
+    pool.query(sql, params, function (err, rows, fields) {
+      if (err) throw err;
+      resolve(rows); // returns the values
+    });
+  });
+}
+
+//middleware function for the authentication process 
+function isAuthenticated(req, res, next) {
+  if (req.session.authenticated) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
 
  app.listen(port, () => {
    console.log(`Server is running on http://localhost:${port}`);

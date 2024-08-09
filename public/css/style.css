@@ -334,6 +334,11 @@ h3 {
   }
 }
 
-#sign-up-button {
-  background-color: #904c68;
+#sign-up-button, #login-button {
+  background-color: #5d2f56;
+  color: white;
+}
+
+#sign-up-button:hover, #login-button:hover{
+  background-color: #7c5576;
 }
