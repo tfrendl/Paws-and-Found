@@ -23,7 +23,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const express = require('express');
-// const fetch = require("node-fetch); ") // npm i node-fetch@2.6; allows to fetch data from web api's
+const fetch = require("node-fetch"); // npm i node-fetch@2.6; allows to fetch data from web api's
 const app = express();
 
 // sessions
@@ -37,10 +37,6 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 // use for parsing data from a form using the POST method
 app.use(express.urlencoded({extended:true})); 
 
@@ -50,8 +46,11 @@ app.use(bodyParser.json());
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-
+// routes
 app.get('/', async (req, res) => {
   res.render('index');
 });
@@ -207,6 +206,16 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+// local API
+app.get('/api/signup/profilePhotos', async function (req, res) {
+  let url = 
+  "https://api.unsplash.com/photos/random/?client_id=7756a1e81f817c186cf57294e1c19b37b49c54b8f34e7c499ee0ce5cd86cd16e&featured=true&query=animals";
+  let response = await fetch(url);
+  let data = await response.json();
+  let imageUrl = data.urls.small;
+  //console.log(imageUrl);
+  res.send({imageUrl});
+});
 
 // OpenAI response
 app.post('/assistantResponse', async (req, res) => {

@@ -12,10 +12,22 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("signup-modal").addEventListener('click',()=>{
         const myModal = new bootstrap.Modal(document.getElementById('signupModal'));
         myModal.show();
+        getProfilePhotos();
     }); 
     }
 });
 
+
+async function getProfilePhotos() {
+    let url = `/api/signup/profilePhotos`;
+    let response = await fetch(url);
+    let data = await response.json();
+    let photo = data.imageUrl;
+    console.log(photo);
+    let profilePhotoOptions = document.querySelector("#profilePhotoOptions");
+    profilePhotoOptions.innerHTML = "";
+    profilePhotoOptions.innerHTML = `<img src="${photo}" alt="Image of animal height="200px" width="200px"></img>`;
+}
 
 
 
