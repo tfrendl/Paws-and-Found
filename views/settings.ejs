@@ -1,0 +1,81 @@
+<%- include('partials/header.ejs') %>
+
+<div class="d-flex justify-content-center align-items-center">
+<div class="bg-light text-dark col-md-6 col-12 d-flex justify-content-center align-items-center mt-4">
+    <div class="d-flex justify-content-start mt-4 row w-50">
+        <div class="row">
+            <h1 class="d-flex justify-content-center align-items-center">Account Settings</h1>
+            <h4 class="d-flex justify-content-center align-items-center"><%=username%></h4>
+        </div>
+    </div>
+    <form method="POST" action="/user/update" autocomplete="off" class="mt-4 row w-50" >
+    <!-- choose photo -->
+
+
+<!-- 
+    TODO: ADD THIS TO PROFILE SETTINGS
+    <div id="profilePhotoOptions" class="d-flex justify-content-center align-items-center" >
+
+    </div>
+    <span class="d-flex justify-content-center fst-italic"><small>Click photo for a different profile photo</small></span>
+    <br> -->
+
+
+    <!-- first name + last name -->
+
+    <!-- email address -->
+    <div class="row">
+      <div class="col-md-10">
+      <div class="form-group">
+       <label for="emailAddress">
+         Email Address
+       </label>
+        <input type="email" class="form-control" name="emailAddress" value="<%=email%>">
+       </div>
+      </div>
+    </div><br>
+
+    <!-- password -->
+    <div class="row">
+      <div class="col-md-10">
+        <div class="form-group">
+          <label for="password">
+            Password
+          </label>
+          <input type="password" class="form-control" name="password" placeholder="New Password">
+        </div>
+      </div>
+    </div><br>
+
+    <!-- confirm password -->
+    <div class="row">
+      <div class="col-md-10">
+       <div class="form-group">
+         <label for="confirmPassword">
+           Password
+         </label>
+         <input type="password" class="form-control" name="confirmPassword" placeholder="New Password Confirmation"> 
+        </div>
+      </div>
+    </div><br>
+
+
+  <!-- sign up or close -->
+  <div class="modal-footer mb-4 mt-4">
+    <div class="col-md-10">
+    <button type="submit" id="sign-up-button" class="btn btn-primary">
+      Update Settings
+    </button>
+    
+    </div>
+  </div>
+</form>
+</div>
+
+</div>
+
+
+<%- include('partials/assistant.ejs') %>
+
+<script src="/js/scripts.js"></script>
+<%- include('partials/footer.ejs') %> 

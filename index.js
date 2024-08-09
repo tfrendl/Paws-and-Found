@@ -24,34 +24,36 @@ const saltRounds = 10;
 
 const express = require('express');
 const fetch = require("node-fetch"); // npm i node-fetch@2.6; allows to fetch data from web api's
+const session = require('express-session'); 
 const app = express();
 
 // sessions
-const session = require('express-session'); 
 // https://github.com/expressjs/session#readme
 app.set('trust proxy', 1) // trust first
 app.use(session({
   secret: 'secret_key',  // secret can be whatever you want
-  resave: true,
+  resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  cookie: { secure: false } // TODO: set back to "true" when deploying - just for localhost
 }))
+
+// use for parsing data from a form using the POST method
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use(function(req, res, next) {
   res.locals.username = req.session.username;
   res.locals.loggedIn = req.session.authenticated;
+  res.locals.email = req.session.email;
   next();
 });
 
-// use for parsing data from a form using the POST method
-app.use(express.urlencoded({extended:true})); 
-
-app.use(express.json());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -164,6 +166,43 @@ app.post("/user/new", async function(req, res) {
   res.render('index', {message: message});
 });
 
+app.post("/user/update", async function(req, res) {
+  let email = req.body.emailAddress.toLowerCase();
+  let password = req.body.password;
+  let verifyPassword = req.body.confirmPassword;
+  let message = "";
+
+  let userId = req.session.userId;
+
+  // verify password fields are valid
+  if ((password && (!verifyPassword)) || (!password) && (verifyPassword)) {
+    message = "one of the password fields was not filled. please try again";
+    res.render('settings', {message: message});
+  } else if (password != verifyPassword) {
+    message = "passwords do not match, please try again!";
+    res.render('settings', {message: message});
+  }
+
+  if (email) {
+    let sql = `UPDATE pf_users
+              SET email = ?
+              WHERE userId = ?`;
+    let data = await executeSQL(sql, [email, userId]);
+  }
+
+  if (password) {
+    let bcryptedPassword = generateBcrypt(password);
+    let sql = `UPDATE pf_users
+              SET password = ?
+              WHERE userId = ?`;
+    let data = await executeSQL(sql, [bcryptedPassword, userId]);
+  }
+
+  message = "settings updated";
+  res.render('settings', {message:message});
+  // see values to update
+});
+
 // plan text password -> bcrypt password
 function generateBcrypt(plainTextPassword) {
   const salt = bcrypt.genSaltSync(saltRounds);
@@ -187,7 +226,6 @@ app.post("/user/login", async function(req, res) {
   if (data.length > 0) {
     passwordHash = data[0].password;
     const matchPassword = await bcrypt.compare(password, passwordHash);
-    console.log(matchPassword);
 
     // verify correct password
     if (matchPassword) {
@@ -195,6 +233,13 @@ app.post("/user/login", async function(req, res) {
       res.locals.loggedIn = await req.session.authenticated;
       req.session.username = data[0].firstName + " " + data[0].lastName;
       req.session.userId = data[0].userId;
+      req.session.email = email;
+      // save the session before redirection
+      req.session.save(function(err) {
+        if (err){ 
+          return next(err)
+        }
+      })
       message = `Welcome back, ${req.session.username}! `;
     } else {
       message = "Incorrect Password  ";
@@ -205,10 +250,15 @@ app.post("/user/login", async function(req, res) {
   res.render('index', {message:message});
 });
 
+app.get('/settings', isAuthenticated, async function (req, res) {
+  res.render('settings');
+});
+
 // user log out
 app.get('/logout', (req, res) => {
-  req.session.authenticated = false;
+  req.session.authenticated = null;
   req.session.destroy();   // remove the session, including all variables
+  let message = "Logged Out";
   res.redirect('/');
 });
 
@@ -282,6 +332,7 @@ function isAuthenticated(req, res, next) {
   if (req.session.authenticated) {
     next();
   } else {
+    console.log("not authentiicated");
     res.redirect('/');
   }
 }

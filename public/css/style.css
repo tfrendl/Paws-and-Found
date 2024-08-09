@@ -35,7 +35,7 @@ body {
   font-optical-sizing: auto;
 }
 
-#welcomeText {
+#welcomeText, h1, h4 {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
@@ -55,7 +55,7 @@ nav {
   font-size: 1.8em;
 } */
 
-#displayBreeds {
+#displayBreeds, .settingsForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -342,3 +342,4 @@ h3 {
 #sign-up-button:hover, #login-button:hover{
   background-color: #7c5576;
 }
+
