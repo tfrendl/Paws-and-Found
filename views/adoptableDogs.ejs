@@ -1,5 +1,12 @@
 <%- include('partials/header.ejs') %>
-
+<div id="displayBreeds" class="customSelect">
+    <select id="breeds" name="breeds">
+      <option> Select Breed </option>
+        <% dogData.forEach(dogData => { %>
+          <option value="<%= dogData.id %>"><%= dogData.name %></option>
+        <% }) %>
+    </select>
+  </div>
     <pet-scroller
         type='["dog"]'
         age='[]'
@@ -12,6 +19,35 @@
         petfinderurl="https://www.petfinder.com"
         accesstoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJtd1NmUDQ1SEpPckFSS0RkVGM1M3JGSjNHVTJIdnk0SUxVSGR5Y3NnNGpURzRCVHIzdCIsImp0aSI6InJpSkJoN0s2NTh0REVnUU1LZmVvcmRDYWY3bGZqZ242b3lQRkZqWlkiLCJpYXQiOjE3MjIzNTkxMDIsIm5iZiI6MTcyMjM1OTEwMiwiZXhwIjo0ODc4MDMyNzAyLCJzdWIiOiIxNzM0NTkyOSIsInNjb3BlcyI6W119.Onrj6lDVuL3jc1cXFAI7s--nlspqN_nw3YdvliyoS5ETQuLp0Zn5mQoJOu8Jhvh1sMbEbEVe7lXvjzTO5pX3Tr-OrtXGAxku3SlOaK7Pz0lLy3wBJHN8jZCzUprC0oZDkK7iv_0aZZ9SWOkatMVnIUZ4ShP7AoqyDJI-9rrFe6i05eEUOWlj2Wp1J4lgHaD1Cw94PtQlhKUzgc1g2APY3O898m41ZevTv3gf_xFmArJ6m6OMYgIkYIWb6FvIJnvjP45wy8VuevXblFHX5pzlMDn_qsqDxpKWRgjLQ7d-xEpRlPhu4FN2QmLdhht_IEgeG3eUdYXDoLrUI1_UcZQLeA">
     </pet-scroller>
+
+    <!-- Modal container using Bootstrap to display breed info -->
+<div id="breedInfoModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Dog Breed Info</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- placeholder for breed info -->
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+              <div class="text-dark" id="breedInfo"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="text-dark" id="breedDetails"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
 
     <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js">
     </script>

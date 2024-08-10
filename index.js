@@ -62,13 +62,9 @@ app.get('/chatbot', async (req, res) => {
 });
 
 
-app.get('/adoptableDogs', (req, res) => {
-  res.render('adoptableDogs');
-});
-
-app.get('/adoptableCats', (req, res) => {
-  res.render('adoptableCats');
-});
+// app.get('/adoptableCats', (req, res) => {
+//   res.render('adoptableCats');
+// });
 
 //app.get('/adoptableCats', async (req, res) => {
 //   let response = await fetch(rescueGroupUrl, {
@@ -111,7 +107,7 @@ app.get('/adoptableCats', (req, res) => {
 //   res.render('adoptableCats');
 // });
 
-app.get('/viewAllDogs', async (req, res) => {
+app.get('/adoptableDogs', async (req, res) => {
   let dogUrl = dogBaseUrl + "breeds";
   let response = await fetch(dogUrl, {
     headers: {
@@ -120,10 +116,10 @@ app.get('/viewAllDogs', async (req, res) => {
   });
   let data = await response.json();
   
-  res.render('aboutDogs', {dogData: data});
+  res.render('adoptableDogs', {dogData: data});
 });
 
-app.get('/aboutCats', async (req, res) => {
+app.get('/adoptableCats', async (req, res) => {
   let catUrl = catBaseUrl + "breeds";
   let response = await fetch(catUrl, {
     headers: {
@@ -132,7 +128,7 @@ app.get('/aboutCats', async (req, res) => {
   });
   let data = await response.json();
 
-  res.render('aboutCats', {catData: data});
+  res.render('adoptableCats', {catData: data});
 });
 
 //process sign-up request
