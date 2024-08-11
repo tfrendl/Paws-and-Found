@@ -38,12 +38,12 @@ body {
   font-optical-sizing: auto;
 }
 
-#welcomeText, h1, h4 {
+#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
 
-#displayBreeds, .settingsForm {
+.settingsForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -284,9 +284,13 @@ h3 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: #904c68;
+  background: #1C6494;
   border-radius: 50%;
   transition: all 0.2s ease;
+}
+
+#title {
+  font-size: 8em;
 }
 
 .show-chatbot .chatbot-toggler {

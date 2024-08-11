@@ -1,25 +1,32 @@
 <%- include('partials/header.ejs') %>
 
-<div id="displayBreeds" class="customSelect">
-  <select id="catBreeds" name="catBreeds">
-    <option> Select Breed </option>
-      <% catData.forEach(catData => { %>
-        <option value="<%=catData.id%>"><%= catData.name %></option>
-      <% }) %>
-  </select>
+<div class="d-flex justify-content-center align-items-center" style="height: 1000px;" >
+  <div class="border text-light col-md-6 col-12 d-flex justify-content-center align-items-center" style="height: 600px; background-color: #944c1c;">
+      <div class="d-flex justify-content-start mt-4 row w-75 h-75 d-inline-block">
+    <h1 class=" mb-5 text-center" id="title">Cats</h1>
+    <p>
+    <span class="d-flex justify-content-center">From playful to poised-learn about the variety of cat breeds.</span>
+    <span class="d-flex justify-content-center">Click the dropdown to learn about different cat breeds!</span>
+    </p>
+    <!-- cat breed options -->
+    <div id="displayBreeds" class="customSelect mb-2 d-flex justify-content-center align-items-center">
+      <select id="catBreeds" name="catBreeds">
+        <option> Select Cat Breed </option>
+          <% catData.forEach(catData => { %>
+            <option id="breedName" value="<%=catData.id%>"><%= catData.name %></option>
+          <% }) %>
+      </select>
+    </div>
+    </div>  
+  </div>
 </div>
 
-
-
-
-
-
+<!-- petfinder widget -->
 <div class="petScroller">
   <pet-scroller
     type='["cat"]'
     age='[]'
     limit="24"
-    hidebreed
     status="adoptable"
     petlisttitle="Cats of Orange County"
     organization="CA2043,CA2366,CA371,CA420,CA1025,CA24,CA2857,CA2489,CA2369,CA2350,CA3245,CA1394,CA30,CA1506,CA1516,CA599"
@@ -54,9 +61,11 @@
   </div>
 </div>
 </div>
-  <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js">
-  </script>
-  
+<script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js">
+</script>
+
+</section>
+
 <%- include('partials/assistant.ejs') %>
 <%- include('partials/login.ejs')%>
 <%- include('partials/signupModal.ejs')%>
