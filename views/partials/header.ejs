@@ -29,10 +29,10 @@
 <body>
 
   <!-- potential color for nav #A04000 -->
-  <nav id="websiteHeader" class="navbar navbar-expand-lg mx-auto " style="background-color: #944c1c;">
+  <nav id="websiteHeader" class="navbar navbar-expand-lg mx-auto " style="background-color: #5E2904;">
     <div class="container-fluid">
     <!-- <div class="container-fluid"> -->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#" style="color:#FFF1EA;">
       <img src="/img/pawsomeMatch.png" width="30" height="30" class="d-inline-block align-top" alt="">  Paws & Found 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,31 +42,31 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-light" aria-current="page" href="/">Home</a>
+          <a class="nav-link" aria-current="page" href="/" style="color:#FFF1EA;">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link text-light" href="/adoptableCats">Cats</a>
+          <a class="nav-link" href="/adoptableCats" style="color:#FFF1EA;">Cats</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link text-light" href="/adoptableDogs">Dogs</a>
+          <a class="nav-link" href="/adoptableDogs" style="color:#FFF1EA;">Dogs</a>
         </li>
         <!-- TODO: move to right side of navbar -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" href="#" role="button"data-bs-toggle="dropdown">
-            <span class="material-symbols-outlined" id="profilePhoto">account_circle</span>
+          <a class="nav-link dropdown-toggle" href="#" role="button"data-bs-toggle="dropdown">
+            <span class="material-symbols-outlined" id="profilePhoto" style="color:#FFF1EA;">account_circle</span>
           </a>
           <% if (typeof message != "undefined") { %>
             <%=message%>   
           <% } %>
           <ul class="dropdown-menu">
             <% if (!loggedIn) { %>
-              <li><a href="#" id="login-modal" class="dropdown-item">Log In</a></li>
-              <li><a href="#" id="signup-modal" class="dropdown-item">Sign up</a></li>
+              <li><a href="#" id="login-modal" class="dropdown-item" style="color:#612C07;">Log In</a></li>
+              <li><a href="#" id="signup-modal" class="dropdown-item" style="color:#612C07;">Sign up</a></li>
             <% } else { %>
               <li><span id="username" class="dropdown-item fw-bold"><%=username%></span></li>
-              <li><a href="#" class="dropdown-item">Profile</a></li>
-              <li><a href="/settings" class="dropdown-item">Settings</a></li>
-              <li><a href="/logout" class="dropdown-item">Logout</a></li>
+              <li><a href="#" class="dropdown-item" style="color:#612C07;">Profile</a></li>
+              <li><a href="/settings" class="dropdown-item" style="color:#612C07;">Settings</a></li>
+              <li><a href="/logout" class="dropdown-item" style="color:#612C07;">Logout</a></li>
             <% } %>
           </ul>
         </li>
