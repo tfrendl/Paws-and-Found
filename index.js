@@ -28,7 +28,7 @@ app.use(session({
   secret: 'secret_key',  // secret can be whatever you want
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // TODO: set back to "true" when deploying - just for localhost
+  cookie: { secure: true } // TODO: set back to "true" when deploying - just for localhost
 }))
 
 // use for parsing data from a form using the POST method
