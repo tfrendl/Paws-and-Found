@@ -364,7 +364,7 @@ app.post('/assistantResponse', async (req, res) => {
 // });
 
 
- let port = process.env.PORT || 3000;
+
 
 
  // Functions
@@ -388,6 +388,7 @@ function isAuthenticated(req, res, next) {
   }
 }
 
+let port = process.env.PORT || 3000;
  app.listen(port, () => {
    console.log(`Server is running on http://localhost:${port}`);
  });
