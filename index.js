@@ -54,7 +54,23 @@ const openai = new OpenAI({
 
 // routes
 app.get('/', async (req, res) => {
-  res.render('index');
+  let catUrl = catBaseUrl + "breeds";
+  let response = await fetch(catUrl, {
+    headers: {
+      'x-api-key': process.env.CAT_API_KEY
+    }
+  });
+  let catData = await response.json();
+
+  let dogUrl = dogBaseUrl + "breeds";
+  response = await fetch(dogUrl, {
+    headers: {
+      'x-api-key': process.env.DOG_API_KEY
+    }
+  });
+  let dogData = await response.json();
+
+  res.render('index', {catData: catData, dogData: dogData});
 });
 
 app.get('/chatbot', async (req, res) => {
