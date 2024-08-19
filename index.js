@@ -28,7 +28,7 @@ app.use(session({
   secret: 'secret_key',  // secret can be whatever you want
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true } // TODO: set back to "true" when deploying - just for localhost
+  cookie: { secure: false } // TODO: set back to "true" when deploying - just for localhost
 }))
 
 // use for parsing data from a form using the POST method
@@ -175,7 +175,7 @@ app.post("/user/new", async function(req, res) {
   } else {
     message = "Passwords do not match! Please try again. ";
   }
-  res.render('index', {message: message});
+  res.redirect('/');
 });
 
 app.post("/user/update", async function(req, res) {
@@ -259,7 +259,7 @@ app.post("/user/login", async function(req, res) {
   } else {
     message = "Email address not found  ";
   }
-  res.render('index', {message:message});
+  res.redirect('/');
 });
 
 app.get('/settings', isAuthenticated, async function (req, res) {

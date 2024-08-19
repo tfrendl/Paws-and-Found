@@ -105,16 +105,26 @@ chatbotToggler.addEventListener("click", () => document.body.classList.toggle("s
 
 // event listeners
 document.addEventListener('DOMContentLoaded', function() {
-  let dogBreedDropdown = document.getElementById("breeds");
+  let dogBreedDropdown = document.getElementById("dogBreeds");
   if (dogBreedDropdown) {
-    dogBreedDropdown.addEventListener("change", displayBreedInfo);
+    if (window.location.pathname == '/') {
+      dogBreeds.addEventListener('change', frontPageDogBreedInfo);
+    } else {
+      dogBreedDropdown.addEventListener("change", displayBreedInfo);
+    }
   }
 
   let catBreedDropdown = document.getElementById("catBreeds");
+  console.log(window.location.pathname);
   if (catBreedDropdown) {
-    catBreedDropdown.addEventListener("change", displayCatBreedInfo);
+    console.log(window.location.pathname);
+    if (window.location.pathname == '/') {  // see if on front page
+      catBreedDropdown.addEventListener("change", frontPageDisplayCatBreedInfo);
+    } else {
+      catBreedDropdown.addEventListener("change", displayCatBreedInfo);
+    }
   }
-})
+});
 
 // functions
 async function displayBreedInfo() {
@@ -123,7 +133,7 @@ async function displayBreedInfo() {
   myModal.show();
   
   // call local dog API
-  let dogId = document.getElementById("breeds").value;
+  let dogId = document.getElementById("dogBreeds").value;
   let url = `api/dog/${dogId}`;
   let response = await fetch(url);
   let data = await response.json();
@@ -176,4 +186,55 @@ async function displayCatBreedInfo() {
   response = await fetch(url);
   data = await response.json();
   breedInfo.innerHTML = `<img src="${data.url}" class="rounded">`;
+}
+
+async function frontPageDisplayCatBreedInfo() {
+  // call local cat API
+  let catId = document.getElementById("catBreeds").value;
+  let url = `/api/cat/${catId}`;
+  let response = await fetch(url);
+  let data = await response.json();
+
+  let breedDetails = document.getElementById('displaySelectedBreed');
+  breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h2>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span} years<br> `;
+  breedDetails.innerHTML += `<span class="fw-bold">Temperament</span>: ${data.temperament} <br> `;
+  breedDetails.innerHTML += `<span class="fw-bold">Affection Level</span>: ${data.affection_level}/5 <br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Origin</span>: ${data.origin} <br>`;
+  breedDetails.innerHTML += `<span class="fw-bold">Description</span>: ${data.description} <br>`;
+
+    // display cat image
+    let breedPhoto = document.getElementById('catBreedPhoto');
+    let image_reference = data.reference_image_id;
+    url = `/api/catImg/${image_reference}`;
+    response = await fetch(url);
+    data = await response.json();
+    breedPhoto.innerHTML = `<img src="${data.url}" class="img-fluid rounded mx-auto d-block">`;
+}
+
+async function frontPageDogBreedInfo() {
+    // call local dog API
+    let dogId = document.getElementById("dogBreeds").value;
+    let url = `api/dog/${dogId}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    //console.log(data.name);
+  
+    // display breed info
+    let breedDetails = document.getElementById("displayDogBreed");
+    breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h3>`;
+    breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
+    breedDetails.innerHTML += `<span class="fw-bold">Height</span>: ${data.height.metric} inches<br>`;
+    breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span}<br> `;
+    breedDetails.innerHTML += `<span class="fw-bold">Temperament</span>: ${data.temperament} <br> `;
+  
+    // display dog image
+    let breedInfo = document.getElementById("dogBreedPhoto");
+    let image_reference = data.reference_image_id;
+    console.log(image_reference);
+    url = `/api/dogImg/${image_reference}`;
+    response = await fetch(url);
+    data = await response.json();
+    breedInfo.innerHTML = `<img src="${data.url}" class="img-fluid rounded mx-auto d-block">`;
 }

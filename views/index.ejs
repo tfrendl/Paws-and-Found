@@ -23,6 +23,7 @@
 <div id="indexCats" class="container" style="height: auto;">
   <div class="row">
     <div class="col">
+      <div class="row">
         <!-- cat breed options -->
         <div id="displayBreeds" class="customSelect mb-2 d-flex justify-content-center align-items-center">
           <select id="catBreeds" name="catBreeds">
@@ -32,6 +33,13 @@
               <% }) %>
           </select>
         </div>
+      </div>
+
+      <!-- display selected cat breed info -->
+      <div class="row">
+        <div class="col" id="catBreedPhoto"></div>
+        <div class="col" id="displaySelectedBreed"></div>
+      </div>
     </div>
 
     <div class="col">
@@ -58,15 +66,25 @@
 <div id="indexDogs" class="container" style="height: auto;">
   <div class="row">
     <div class="col">
-      <div id="displayBreeds" class="customSelect d-flex justify-content-center">
-        <select id="breeds" name="breeds">
-        <option> Select Dog Breed </option>
-          <% dogData.forEach(dogData => { %>
-        <option value="<%= dogData.id %>"><%= dogData.name %></option>
-      <% }) %>
-      </select>
+      <div class="row">
+        <div id="displayBreeds" class="customSelect d-flex justify-content-center">
+          <select id="dogBreeds" name="breeds">
+          <option> Select Dog Breed </option>
+            <% dogData.forEach(dogData => { %>
+          <option value="<%= dogData.id %>"><%= dogData.name %></option>
+        <% }) %>
+        </select>
+        </div>
       </div>
+      
+
+      <!-- display selected cat breed info -->
+        <div class="row">
+          <div class="col" id="dogBreedPhoto"></div>
+          <div class="col" id="displayDogBreed"></div>
+        </div>
     </div>
+ 
 
     <div class="col">
       <pet-scroller 
