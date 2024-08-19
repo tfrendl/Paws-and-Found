@@ -3,7 +3,7 @@
 <div id="logo" class="d-flex align-items-center justify-content-center"
   <image><img src="/img/pawsomeMatch.png" alt="Logo"></image>
 </div>
-<div id="welcomeText" style="height: 1000px;">
+<div id="welcomeText" style="height: 800px;">
   <h1>Welcome to Paws & Found,</h1>
   <h1>the best place to find your furever friend!</h1>
 </div>
@@ -14,14 +14,14 @@
 </div>
 
 <div id="indexCatHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/cats.jpg'); height: 500px; background-size: cover;">
-    <h1>Cats</h1>
+    <h1 style="font-size:5vw;">Cats</h1>
 </div>
 
-<div id="indexCats" class="container-fluid" style="background-color: #efedf0; height:auto;">
+<div id="indexCats" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0; height:auto;">
   <div class="row">
-    <div class="col">
+    <div class="col mt-5">
       <div class="row">
-        <h2 class="d-flex justify-content-center mt-5">Types of Cats</h2>
+        <h1 class="d-flex justify-content-center">Types of Cats</h1>
         <!-- cat breed options -->
         <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center align-items-center">
           <select id="catBreeds" name="catBreeds">
@@ -34,40 +34,46 @@
       </div>
 
       <!-- display selected cat breed info -->
-      <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff;">
+      <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; height: auto; overflow:auto;">
         <div class="col d-flex align-items-center" id="catBreedPhoto" style="height: 100%; overflow: hidden;"></div>
         <div class="col d-flex align-items-center">
-          <div id="displaySelectedBreed" style="height: 75%; overflow: auto;"></div>
+          <div id="displaySelectedBreed"></div>
         </div>
       </div>
     </div>
 
-    <div class="col d-flex justify-content-center mt-2 mb-2">
+    <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
+      <div class="row">
+        <h1>Find a Cat</h1>
+      </div>
+      <div class="row mt-2 mb-5">
         <pet-scroller
           type='["cat"]'
           age='[]'
           limit="1"
           status="adoptable"
-          petlisttitle="Cats of Orange County"
+          petlisttitle=""
           organization="CA2043,CA2366,CA371,CA420,CA1025,CA24,CA2857,CA2489,CA2369,CA2350,CA3245,CA1394,CA30,CA1506,CA1516,CA599"
           apibase="https://api.petfinder.com"
           petfinderurl="https://www.petfinder.com"
           accesstoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJtd1NmUDQ1SEpPckFSS0RkVGM1M3JGSjNHVTJIdnk0SUxVSGR5Y3NnNGpURzRCVHIzdCIsImp0aSI6InJpSkJoN0s2NTh0REVnUU1LZmVvcmRDYWY3bGZqZ242b3lQRkZqWlkiLCJpYXQiOjE3MjIzNTkxMDIsIm5iZiI6MTcyMjM1OTEwMiwiZXhwIjo0ODc4MDMyNzAyLCJzdWIiOiIxNzM0NTkyOSIsInNjb3BlcyI6W119.Onrj6lDVuL3jc1cXFAI7s--nlspqN_nw3YdvliyoS5ETQuLp0Zn5mQoJOu8Jhvh1sMbEbEVe7lXvjzTO5pX3Tr-OrtXGAxku3SlOaK7Pz0lLy3wBJHN8jZCzUprC0oZDkK7iv_0aZZ9SWOkatMVnIUZ4ShP7AoqyDJI-9rrFe6i05eEUOWlj2Wp1J4lgHaD1Cw94PtQlhKUzgc1g2APY3O898m41ZevTv3gf_xFmArJ6m6OMYgIkYIWb6FvIJnvjP45wy8VuevXblFHX5pzlMDn_qsqDxpKWRgjLQ7d-xEpRlPhu4FN2QmLdhht_IEgeG3eUdYXDoLrUI1_UcZQLeA">
         </pet-scroller>
+      </div>
     </div>
   </div>
 </div>
 
 <div id="indexDogHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/dogs.jpg'); height: 500px; background-size: cover;">
-  <h1 class="text-light">Dogs</h1>
+  <h1 class="text-light" style="font-size:5vw;">Dogs</h1>
 </div>
 
 
-<div id="indexDogs" class="container mw-100" style="height: auto; background-color: #efedf0;">
+<div id="indexDogs" class="container-fluid d-flex justify-content-center" style="height: auto; background-color: #efedf0;">
   <div class="row">
-    <div class="col">
+    <div class="col mt-5">
       <div class="row">
-        <h2 class="d-flex justify-content-center mt-5">Types of Dogs</h2>
+        <h1 class="d-flex justify-content-center">Types of Dogs</h1>
+        <!-- dog breed options -->
         <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center">
           <select id="dogBreeds" name="breeds">
           <!-- <option> Select Dog Breed </option> -->
@@ -77,25 +83,29 @@
         </select>
         </div>
       </div>
-      
 
-      <!-- display selected cat breed info -->
-        <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff;">
+
+      <!-- display selected dog breed info -->
+        <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; height: auto; overflow:auto;">
           <div class="col d-flex align-items-center" id="dogBreedPhoto" style="height: 100%; overflow: hidden;"></div>
           <div class="col d-flex align-items-center">
-            <div id="displayDogBreed" style="height: 75%; overflow: auto;"></div>
+            <div id="displayDogBreed"></div>
           </div>
         </div>
     </div>
  
 
-    <div class="col d-flex justify-content-center mt-2 mb-2">
+    <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
+      <div class="row">
+        <h1>Find a Dog</h1>
+      </div>
+      <div class="row mt-2 mb-5">
       <pet-scroller 
         type='["dog"]'
         age='[]'
         limit="1"
         status="adoptable"
-        petlisttitle="Dogs of Orange County"
+        petlisttitle=""
         organization="CA2043,CA2366,CA371,CA420,CA1025,CA24,CA2857,CA2489,CA2369,CA2350,CA3245,CA1394,CA30,CA1506,CA1516,CA599"
         apibase="https://api.petfinder.com"
         petfinderurl="https://www.petfinder.com"

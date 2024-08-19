@@ -106,9 +106,12 @@ chatbotToggler.addEventListener("click", () => document.body.classList.toggle("s
 // event listeners
 document.addEventListener('DOMContentLoaded', function() {
 
+
   // display cat and dog when page loads
-  frontPageDisplayCatBreedInfo();
-  frontPageDogBreedInfo();
+  if (window.location.pathname == "/") {
+    frontPageDisplayCatBreedInfo();
+    frontPageDogBreedInfo();
+  }
 
 
   let dogBreedDropdown = document.getElementById("dogBreeds");
