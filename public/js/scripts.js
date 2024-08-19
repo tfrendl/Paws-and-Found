@@ -105,6 +105,12 @@ chatbotToggler.addEventListener("click", () => document.body.classList.toggle("s
 
 // event listeners
 document.addEventListener('DOMContentLoaded', function() {
+
+  // display cat and dog when page loads
+  frontPageDisplayCatBreedInfo();
+  frontPageDogBreedInfo();
+
+
   let dogBreedDropdown = document.getElementById("dogBreeds");
   if (dogBreedDropdown) {
     if (window.location.pathname == '/') {
@@ -196,6 +202,7 @@ async function frontPageDisplayCatBreedInfo() {
   let data = await response.json();
 
   let breedDetails = document.getElementById('displaySelectedBreed');
+
   breedDetails.innerHTML = `<h3 class="text-decoration-underline"> ${data.name}</h2>`;
   breedDetails.innerHTML += `<span class="fw-bold">Weight</span>: ${data.weight.metric} pounds<br>`;
   breedDetails.innerHTML += `<span class="fw-bold">Life Span</span>: ${data.life_span} years<br> `;
@@ -210,7 +217,7 @@ async function frontPageDisplayCatBreedInfo() {
     url = `/api/catImg/${image_reference}`;
     response = await fetch(url);
     data = await response.json();
-    breedPhoto.innerHTML = `<img src="${data.url}" class="img-fluid rounded mx-auto d-block">`;
+    breedPhoto.innerHTML = `<img src="${data.url}" class="img-fluid h-100 w-100 p-2 rounded" style="object-fit:contain;">`;
 }
 
 async function frontPageDogBreedInfo() {
@@ -236,5 +243,5 @@ async function frontPageDogBreedInfo() {
     url = `/api/dogImg/${image_reference}`;
     response = await fetch(url);
     data = await response.json();
-    breedInfo.innerHTML = `<img src="${data.url}" class="img-fluid rounded mx-auto d-block">`;
+    breedInfo.innerHTML = `<img src="${data.url}" class="img-fluid h-100 w-100 p-2 rounded" style="object-fit:contain;">`;
 }

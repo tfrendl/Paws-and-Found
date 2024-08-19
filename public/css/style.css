@@ -23,11 +23,6 @@ html {
   background-position: center;
 }
 
-.modal {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-}
-
 body {
   color: #552C1C;
   height: 100%;
@@ -42,7 +37,7 @@ body {
   font-optical-sizing: auto;
 }
 
-#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName {
+#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName, .modal, h2 {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
@@ -354,6 +349,7 @@ h3 {
   background-position:  25% 35%;
 }
 
-
-
-
+.breedContainer {
+  border-style: solid;
+  border-color: #d2d0d3;
+}

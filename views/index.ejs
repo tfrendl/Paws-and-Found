@@ -9,25 +9,23 @@
 </div>
 
 
-<div id="scrollPrompt" class="d-flex align-items-center justify-content-center" style="height: 100px;">
+<div id="scrollPrompt" class="d-flex align-items-center justify-content-center" style="height: 100px; background-color: #efedf0;">
   SCROLL PROMPT WILL BE HERE
 </div>
-
-
-
 
 <div id="indexCatHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/cats.jpg'); height: 500px; background-size: cover;">
     <h1>Cats</h1>
 </div>
 
-<div id="indexCats" class="container" style="height: auto;">
+<div id="indexCats" class="container-fluid" style="background-color: #efedf0; height:auto;">
   <div class="row">
     <div class="col">
       <div class="row">
+        <h2 class="d-flex justify-content-center mt-5">Types of Cats</h2>
         <!-- cat breed options -->
-        <div id="displayBreeds" class="customSelect mb-2 d-flex justify-content-center align-items-center">
+        <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center align-items-center">
           <select id="catBreeds" name="catBreeds">
-            <option> Select Cat Breed </option>
+            <!-- <option> Select Cat Breed </option> -->
               <% catData.forEach(catData => { %>
                 <option id="breedName" value="<%=catData.id%>"><%= catData.name %></option>
               <% }) %>
@@ -36,17 +34,19 @@
       </div>
 
       <!-- display selected cat breed info -->
-      <div class="row">
-        <div class="col" id="catBreedPhoto"></div>
-        <div class="col" id="displaySelectedBreed"></div>
+      <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff;">
+        <div class="col d-flex align-items-center" id="catBreedPhoto" style="height: 100%; overflow: hidden;"></div>
+        <div class="col d-flex align-items-center">
+          <div id="displaySelectedBreed" style="height: 75%; overflow: auto;"></div>
+        </div>
       </div>
     </div>
 
-    <div class="col">
+    <div class="col d-flex justify-content-center mt-2 mb-2">
         <pet-scroller
           type='["cat"]'
           age='[]'
-          limit="2"
+          limit="1"
           status="adoptable"
           petlisttitle="Cats of Orange County"
           organization="CA2043,CA2366,CA371,CA420,CA1025,CA24,CA2857,CA2489,CA2369,CA2350,CA3245,CA1394,CA30,CA1506,CA1516,CA599"
@@ -63,13 +63,14 @@
 </div>
 
 
-<div id="indexDogs" class="container" style="height: auto;">
+<div id="indexDogs" class="container mw-100" style="height: auto; background-color: #efedf0;">
   <div class="row">
     <div class="col">
       <div class="row">
-        <div id="displayBreeds" class="customSelect d-flex justify-content-center">
+        <h2 class="d-flex justify-content-center mt-5">Types of Dogs</h2>
+        <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center">
           <select id="dogBreeds" name="breeds">
-          <option> Select Dog Breed </option>
+          <!-- <option> Select Dog Breed </option> -->
             <% dogData.forEach(dogData => { %>
           <option value="<%= dogData.id %>"><%= dogData.name %></option>
         <% }) %>
@@ -79,14 +80,16 @@
       
 
       <!-- display selected cat breed info -->
-        <div class="row">
-          <div class="col" id="dogBreedPhoto"></div>
-          <div class="col" id="displayDogBreed"></div>
+        <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff;">
+          <div class="col d-flex align-items-center" id="dogBreedPhoto" style="height: 100%; overflow: hidden;"></div>
+          <div class="col d-flex align-items-center">
+            <div id="displayDogBreed" style="height: 75%; overflow: auto;"></div>
+          </div>
         </div>
     </div>
  
 
-    <div class="col">
+    <div class="col d-flex justify-content-center mt-2 mb-2">
       <pet-scroller 
         type='["dog"]'
         age='[]'
@@ -101,26 +104,20 @@
     </div>
   </div>
 </div>
-
-
 </div>
 
-
-
-
-
-  <%- include('partials/assistant.ejs')%>
-  <%- include('partials/login.ejs')%>
-  <%- include('partials/signupModal.ejs')%>
+<!-- partials -->
+<%- include('partials/assistant.ejs')%>
+<%- include('partials/login.ejs')%>
+<%- include('partials/signupModal.ejs')%>
   
-  <script src="/js/scripts.js"></script>
-  <script src="/js/header.js"></script>
-  <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
-  <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
-  </section>
+<!-- scripts -->
+<script src="/js/scripts.js"></script>
+<script src="/js/header.js"></script>
+<script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
+<script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
+
+</section>
 </body>
-  
- 
-
 </body>
 <%- include('partials/footer.ejs') %>
