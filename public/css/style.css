@@ -24,12 +24,13 @@ html {
 }
 
 body {
+  margin: 0;
   color: #552C1C;
-  height: 100%;
-  text-align: center;
+  /* height: 100%; */
+  /* text-align: center; */
   font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  background-repeat: no-repeat;
+  /* font-optical-sizing: auto;
+  background-repeat: no-repeat; */
 }
 
 #websiteHeader {
@@ -37,7 +38,7 @@ body {
   font-optical-sizing: auto;
 }
 
-#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName, .modal, h2 {
+#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName, .modal, h2, span {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
@@ -354,3 +355,32 @@ h3 {
   border-style: solid;
   border-color: #d2d0d3;
 }
+
+/* scroll arrow  */
+#down-arrow {
+  font-size: 5em;
+  font-weight: 100;
+  animation: bouncingArrowAnimation 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bouncingArrowAnimation {
+  from {
+    transform: translate3d(0,0,0);
+  }
+  to {
+    transform: translate3d(0px, 15px, 0);
+  }
+}
+
+.topOfPage {
+  background-image: url('/img/dogAndCat.jpg');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+

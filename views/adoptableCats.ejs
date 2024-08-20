@@ -1,23 +1,27 @@
 <%- include('partials/header.ejs') %>
 
-<div class="d-flex justify-content-center align-items-center" style="height: 1000px;" >
-  <div class="border col-md-6 col-12 d-flex justify-content-center align-items-center" style="height: 600px; background-color: #5E2904; color:#FFF1EA; border-color:#FFF1EA;">
-      <div class="d-flex justify-content-start mt-4 row w-75 h-75 d-inline-block">
-    <h1 class=" mb-5 text-center" id="title">Cats</h1>
-    <p>
-    <span class="d-flex justify-content-center">From playful to poised-learn about the variety of cat breeds.</span>
-    <span class="d-flex justify-content-center">Click the dropdown to learn about different cat breeds!</span>
-    </p>
-    <!-- cat breed options -->
-    <div id="displayBreeds" class="customSelect mb-2 d-flex justify-content-center align-items-center">
-      <select id="catBreeds" name="catBreeds">
-        <option> Select Cat Breed </option>
-          <% catData.forEach(catData => { %>
-            <option id="breedName" value="<%=catData.id%>"><%= catData.name %></option>
-          <% }) %>
-      </select>
+<body>
+
+<div class="topOfPage">
+  <div class="d-flex justify-content-center align-items-center" style="height: 1000px;" >
+    <div class="border col-md-6 col-12 d-flex justify-content-center align-items-center" style="height: 600px; background-color: #5E2904; color:#FFF1EA; border-color:#FFF1EA;">
+        <div class="d-flex justify-content-start mt-4 row w-75 h-75 d-inline-block">
+      <h1 class=" mb-5 text-center" id="title">Cats</h1>
+      <p>
+      <span class="d-flex justify-content-center">From playful to poised-learn about the variety of cat breeds.</span>
+      <span class="d-flex justify-content-center">Click the dropdown to learn about different cat breeds!</span>
+      </p>
+      <!-- cat breed options -->
+      <div id="displayBreeds" class="customSelect mb-2 d-flex justify-content-center align-items-center">
+        <select id="catBreeds" name="catBreeds">
+          <option> Select Cat Breed </option>
+            <% catData.forEach(catData => { %>
+              <option id="breedName" value="<%=catData.id%>"><%= catData.name %></option>
+            <% }) %>
+        </select>
+      </div>
+      </div>  
     </div>
-    </div>  
   </div>
 </div>
 
@@ -64,7 +68,7 @@
 <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js">
 </script>
 
-</section>
+</body>
 
 <%- include('partials/assistant.ejs') %>
 <%- include('partials/login.ejs')%>

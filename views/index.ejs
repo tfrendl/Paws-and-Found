@@ -1,22 +1,32 @@
 <%- include('partials/header.ejs') %>
 
-<div id="logo" class="d-flex align-items-center justify-content-center"
-  <image><img src="/img/pawsomeMatch.png" alt="Logo"></image>
-</div>
-<div id="welcomeText" style="height: 800px;">
-  <h1>Welcome to Paws & Found,</h1>
-  <h1>the best place to find your furever friend!</h1>
+<body>
+  <!-- <section class="background-img"> -->
+
+
+<div class="topOfPage">
+  <div id="logo" class="d-flex align-items-center justify-content-center">
+    <image><img src="/img/pawsomeMatch.png" alt="Logo"></image>
+  </div>
+  <div id="welcomeText" style="height: 800px;">
+    <h1>Welcome to Paws & Found,</h1>
+    <h1>the best place to find your furever friend!</h1>
+  </div>
 </div>
 
 
-<div id="scrollPrompt" class="d-flex align-items-center justify-content-center" style="height: 100px; background-color: #efedf0;">
-  SCROLL PROMPT WILL BE HERE
+<!-- scroll prompt  -->
+<div id="scrollPrompt" class="d-flex align-items-center justify-content-center flex-column" style="height: 100px; background-color: #efedf0;">
+  <span>Scroll for more</span>
+  <span class="material-symbols-outlined" id="down-arrow">keyboard_arrow_down</span>
 </div>
 
+<!-- cat header  -->
 <div id="indexCatHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/cats.jpg'); height: 500px; background-size: cover;">
     <h1 style="font-size:5vw;">Cats</h1>
 </div>
 
+<!-- cat breed dropdown  -->
 <div id="indexCats" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0; height:auto;">
   <div class="row">
     <div class="col mt-5">
@@ -42,6 +52,7 @@
       </div>
     </div>
 
+    <!-- pet finder cat display  -->
     <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1>Find a Cat</h1>
@@ -63,11 +74,12 @@
   </div>
 </div>
 
+<!-- dog header  -->
 <div id="indexDogHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/dogs.jpg'); height: 500px; background-size: cover;">
   <h1 class="text-light" style="font-size:5vw;">Dogs</h1>
 </div>
 
-
+<!-- dog breed dropdown  -->
 <div id="indexDogs" class="container-fluid d-flex justify-content-center" style="height: auto; background-color: #efedf0;">
   <div class="row">
     <div class="col mt-5">
@@ -94,7 +106,7 @@
         </div>
     </div>
  
-
+  <!-- pet finder dog display  -->
     <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1>Find a Dog</h1>
@@ -114,7 +126,6 @@
     </div>
   </div>
 </div>
-</div>
 
 <!-- partials -->
 <%- include('partials/assistant.ejs')%>
@@ -127,7 +138,5 @@
 <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
 <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
 
-</section>
-</body>
 </body>
 <%- include('partials/footer.ejs') %>
