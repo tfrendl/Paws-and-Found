@@ -79,7 +79,7 @@ const handleChat = () => {
      chatbox.appendChild(incomingChatLi);
      chatbox.scrollTo(0, chatbox.scrollHeight);
      console.log("currently commenting out line 85 so as not to use tokens");
-     // generateResponse(userMessage);
+     generateResponse(userMessage);
    }, 600);
 }
 
