@@ -18,16 +18,16 @@
     <h1>Cats</h1>
 </div>
 
-<!-- cat breed dropdown  -->
+<!-- cat section  -->
 <div id="indexCats" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0;">
   <div class="row">
-    <div class="col mt-5">
+     <!-- left column  -->
+    <div class="col col-md-8 mt-5 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1 class="d-flex justify-content-center">Types of Cats</h1>
-        <!-- cat breed options -->
+        <!-- cat breed dropdown -->
         <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center align-items-center">
           <select id="catBreeds" name="catBreeds">
-            <!-- <option> Select Cat Breed </option> -->
               <% catData.forEach(catData => { %>
                 <option id="breedName" value="<%=catData.id%>"><%= catData.name %></option>
               <% }) %>
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <!-- display selected cat breed info -->
+      <!-- display selected cat breed -->
       <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; overflow:auto;">
         <div class="col d-flex align-items-center" id="catBreedPhoto" style="overflow: hidden;"></div>
         <div class="col d-flex align-items-center">
@@ -44,8 +44,9 @@
       </div>
     </div>
 
+    <!-- right column  -->
     <!-- pet finder cat display  -->
-    <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="col col-md-4 mt-5 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1>Find a Cat</h1>
       </div>
@@ -71,25 +72,24 @@
   <h1 class="text-light">Dogs</h1>
 </div>
 
-<!-- dog breed dropdown  -->
+<!-- dog section  -->
 <div id="indexDogs" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0;">
   <div class="row">
-    <div class="col mt-5">
+    <!-- left column  -->
+    <div class="col col-md-8 mt-5 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1 class="d-flex justify-content-center">Types of Dogs</h1>
-        <!-- dog breed options -->
+        <!-- dog breed dropdown -->
         <div id="displayBreeds" class="customSelect mt-4 mb-2 d-flex justify-content-center">
           <select id="dogBreeds" name="breeds">
-          <!-- <option> Select Dog Breed </option> -->
             <% dogData.forEach(dogData => { %>
-          <option value="<%= dogData.id %>"><%= dogData.name %></option>
-        <% }) %>
-        </select>
+              <option value="<%= dogData.id %>"><%= dogData.name %></option>
+            <% }) %>
+          </select>
         </div>
       </div>
 
-
-      <!-- display selected dog breed info -->
+      <!-- display dog breed info -->
         <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; overflow:auto;">
           <div class="col d-flex align-items-center" id="dogBreedPhoto" style="overflow: hidden;"></div>
           <div class="col d-flex align-items-center">
@@ -98,8 +98,9 @@
         </div>
     </div>
  
-  <!-- pet finder dog display  -->
-    <div class="col mt-5 d-flex flex-column justify-content-center align-items-center">
+    <!-- right column  -->
+    <!-- pet finder dog display  -->
+    <div class="col mt-5 col-md-4 d-flex flex-column justify-content-center align-items-center">
       <div class="row">
         <h1>Find a Dog</h1>
       </div>

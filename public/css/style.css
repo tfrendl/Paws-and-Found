@@ -9,7 +9,8 @@ body {
 
 footer {
   color: #FFF1EA;
-  padding: 20px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 select {
@@ -26,7 +27,7 @@ h3 {
 }
 
 /* font style  */
-#hero-text, h1, h3, h4, small, option, footer, select, #catBreeds, #breedName, .modal, h2, span, html, body, #breeds, #submitButton, input[type="text"] {
+#hero-text, #dogBreeds, .parent-container, .child-container, h1, h3, h4, small, option, footer, select, #catBreeds, #breedName, .modal, h2, span, html, body, #displaySelectedBreed, #displayDogBreed, #breeds, #submitButton, input[type="text"] {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
@@ -364,7 +365,7 @@ h3 {
 /* cat and dog background image  */
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/dogAndCat.jpg");
-  height: 50vh;
+  height: 100vh; /* cover entire view height */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -397,4 +398,19 @@ h3 {
   max-height: 100%;
 }
 
+.child-container {
+  overflow: hidden;
+  border: 2px solid;
+  padding: 10px;
+  box-shadow: 6px 4px 8px -2px;
+}
+
+.parent-container {
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  width: 75vw;
+  height: 75vh;
+  transform: translate(-50%, -50%);
+}
 
