@@ -126,7 +126,8 @@ h3 {
   right: 40px;
   bottom: 100px;
   overflow:hidden;
-  background: #FFF1EA;
+  /* background: #FFF1EA; */
+  background: rgba(239, 237, 240);
   width: 420px;
   transform: scale(0.5);
   opacity: 0;
@@ -154,7 +155,8 @@ h3 {
 }
 
 .chatbot header h2 {
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
   font-size: 1.4em;
 }
 
@@ -162,7 +164,8 @@ h3 {
   position: absolute;
   right: 20px;
   top: 50%;
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
   cursor: pointer;
   display: none;
   transform: translateY(-50%);
@@ -176,14 +179,16 @@ h3 {
 
 .chatbox .chat {
   display: flex;
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
 }
 
 .chatbox .incoming span {
   height: 32px;
   width: 32px;
   background: #06395C;
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
   text-align: center;
   line-height: 32px;
   border-radius: 4px;
@@ -212,11 +217,13 @@ h3 {
 
 .chatbox .chat p.error {
   color: #721c24;
-  background: #f8d7da;
+  /* background: #f8d7da; */
+  background: rgba(239, 237, 240);
 }
 
 .chatbox .incoming p {
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
   background: #06395C;
   border-radius: 10px 10px 10px 0;
 }
@@ -227,7 +234,8 @@ h3 {
   display: flex;
   gap: 5px;
   width: 100%;
-  background: #FFF1EA;
+  /* background: #FFF1EA; */
+  background: rgba(239, 237, 240);
   padding: 5px 20px;
   border-top: 1px solid #06395C;
 }
@@ -241,13 +249,16 @@ h3 {
   resize: none;
   padding: 16px 15px 16px 0;
   max-height: 180px;
+  background: rgba(239, 237, 240);
 }
 
 .chat-input span {
-  color: #E5EFFF;
+  /* color: #E5EFFF; */
+  color: rgba(239, 237, 240);
   font-size: 1.35em;
   cursor: pointer;
-  background: #FFF1EA;
+  /* background: #FFF1EA; */
+  background: rgba(239, 237, 240);
   align-self: flex-end;
   height: 55px;
   line-height: 55px;
@@ -258,13 +269,18 @@ h3 {
   visibility: visible;
 }
 
+#send-btn {
+  color: #06395C;
+}
+
 .chatbot-toggler {
   position: fixed;
   right: 40px;
   bottom: 35px;
   height: 50px;
   width: 50px;
-  color: #FFF1EA;
+  /* color: #FFF1EA; */
+  color: rgba(239, 237, 240);
   border: none;
   outline: none;
   display: flex;
@@ -332,7 +348,7 @@ h3 {
 
 #indexCatHeader {
   background-image: url('/img/cats.jpg');
-  background-position:  25% 30%;
+  background-position: 25% 30%;
 }
 
 #indexDogHeader {
@@ -416,3 +432,10 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
+.gray-background {
+  background-color: rgba(239, 237, 240, 0.3);
+}
+
+.black-text-shadow {
+  text-shadow: 3px 3px 2px black;
+}
