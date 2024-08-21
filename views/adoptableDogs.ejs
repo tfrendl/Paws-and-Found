@@ -1,16 +1,16 @@
 <%- include('partials/header.ejs') %>
 
 <div class="hero-image">
-  <div class="d-flex justify-content-center align-items-center" id="hero-text">
-    <div class="border text-light col-md-6 col-12 d-flex justify-content-center align-items-center" style="background-color: #5E2904; color:#FFF1EA; border-color:#FFF1EA;">
-        <div class="d-flex justify-content-start mt-4 row w-75 h-75 d-inline-block">
-      <h1 class=" mb-5 text-center" id="title">Dogs</h1>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="border text-light col-md-6 col-md-6 d-flex justify-content-center align-items-center" id="parent-animal-breed-box" style="background-color: #5E2904; color:#FFF1EA; border-color:#FFF1EA;">
+        <div class="d-flex justify-content-start row">
+      <h1 class=" mb-5 mt-2 text-center" id="title">Dogs</h1>
       <p>
       <span class="d-flex justify-content-center">Discover the perfect breed for your lifestyle.</span>
       <span class="d-flex justify-content-center">Click the dropdown to learn about different dog breeds!</span>
       </p>
         <!-- dog breeds -->
-        <div id="displayBreeds" class="customSelect d-flex justify-content-center">
+        <div id="displayBreeds" class="customSelect d-flex justify-content-center align-items-center mt-2 mb-5">
             <select id="dogBreeds" name="breeds">
             <option> Select Dog Breed </option>
                 <% dogData.forEach(dogData => { %>
