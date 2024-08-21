@@ -1,30 +1,26 @@
 <%- include('partials/header.ejs') %>
   <!-- <section class="background-img"> -->
 
-<div class="topOfPage">
-  <div id="logo" class="d-flex align-items-center justify-content-center">
-    <image><img src="/img/pawsomeMatch.png" alt="Logo"></image>
-  </div>
-  <div id="welcomeText" style="height: 800px;">
+<div class="hero-image">
+  <div id="hero-text">
     <h1>Welcome to Paws & Found,</h1>
     <h1>the best place to find your furever friend!</h1>
   </div>
 </div>
 
-
 <!-- scroll prompt  -->
-<div id="scrollPrompt" class="d-flex align-items-center justify-content-center flex-column" style="height: 100px; background-color: #efedf0;">
+<div id="scrollPrompt" class="d-flex align-items-center justify-content-center flex-column" style="background-color: #efedf0;">
   <span>Scroll for more</span>
   <span class="material-symbols-outlined" id="down-arrow">keyboard_arrow_down</span>
 </div>
 
 <!-- cat header  -->
-<div id="indexCatHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/cats.jpg'); height: 500px; background-size: cover;">
-    <h1 style="font-size:5vw;">Cats</h1>
+<div id="indexCatHeader" class="bg d-flex align-items-center justify-content-center">
+    <h1>Cats</h1>
 </div>
 
 <!-- cat breed dropdown  -->
-<div id="indexCats" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0; height:auto;">
+<div id="indexCats" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0;">
   <div class="row">
     <div class="col mt-5">
       <div class="row">
@@ -41,8 +37,8 @@
       </div>
 
       <!-- display selected cat breed info -->
-      <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; height: auto; overflow:auto;">
-        <div class="col d-flex align-items-center" id="catBreedPhoto" style="height: 100%; overflow: hidden;"></div>
+      <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; overflow:auto;">
+        <div class="col d-flex align-items-center" id="catBreedPhoto" style="overflow: hidden;"></div>
         <div class="col d-flex align-items-center">
           <div id="displaySelectedBreed"></div>
         </div>
@@ -72,12 +68,12 @@
 </div>
 
 <!-- dog header  -->
-<div id="indexDogHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/dogs.jpg'); height: 500px; background-size: cover;">
-  <h1 class="text-light" style="font-size:5vw;">Dogs</h1>
+<div id="indexDogHeader" class="bg d-flex align-items-center justify-content-center" style="background-image: url('/img/dogs.jpg'); background-size: cover;">
+  <h1 class="text-light">Dogs</h1>
 </div>
 
 <!-- dog breed dropdown  -->
-<div id="indexDogs" class="container-fluid d-flex justify-content-center" style="height: auto; background-color: #efedf0;">
+<div id="indexDogs" class="container-fluid d-flex justify-content-center" style="background-color: #efedf0;">
   <div class="row">
     <div class="col mt-5">
       <div class="row">
@@ -95,8 +91,8 @@
 
 
       <!-- display selected dog breed info -->
-        <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; height: auto; overflow:auto;">
-          <div class="col d-flex align-items-center" id="dogBreedPhoto" style="height: 100%; overflow: hidden;"></div>
+        <div class="row rounded-3 container h-50 w-100 breedContainer mt-2 d-flex align-items-center" style="background-color: #fff; overflow:auto;">
+          <div class="col d-flex align-items-center" id="dogBreedPhoto" style="overflow: hidden;"></div>
           <div class="col d-flex align-items-center">
             <div id="displayDogBreed"></div>
           </div>
@@ -124,6 +120,7 @@
   </div>
 </div>
 </div>
+<%- include('partials/footer.ejs') %>
 
 <!-- partials -->
 <%- include('partials/assistant.ejs')%>
@@ -136,5 +133,3 @@
 <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
 <script src="https://www.petfinder.com/assets/widgets/scripts/main-widgets-web.js"></script>
 
-</body>
-<%- include('partials/footer.ejs') %>

@@ -1,48 +1,42 @@
-html {
+html, body {
   height: 100%;
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
+}
+
+footer {
+  margin-top: 0px;
 }
 
 #logo{
-  padding: 60px;
+  padding: 20px;
+  max-width: 25%;
 }
 
 .nav-link {
   color: #FFF1EA;
 }
 
-.background-img::after {
-  /* Photo by <a href="https://unsplash.com/@alecfavale?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alec Favale</a> on <a href="https://unsplash.com/photos/short-coated-white-and-brown-puppy-Ivzo69e18nk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: url('/img/dogAndCat.jpg'); 
-  background-size: cover;
-  background-position: center;
-}
-
 body {
   margin: 0;
   color: #552C1C;
-  /* height: 100%; */
-  /* text-align: center; */
-  font-family: "Quicksand", sans-serif;
-  /* font-optical-sizing: auto;
-  background-repeat: no-repeat; */
 }
 
-#websiteHeader {
+
+.collapse  {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  text-shadow: 3px 3px 2px black;
+  font-size: 1.3em;
+}
+
+.dropdown-item {
+  text-shadow: none;
+}
+
+#hero-text, h1, h3, h4, small, option, footer, select, #catBreeds, #breedName, .modal, h2, span, html, body, #breeds, #submitButton, input[type="text"] {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
 }
-
-#welcomeText, h1, h4, small, option, select, #catBreeds, #breedName, .modal, h2, span {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-}
-
 
 .settingsForm {
   display: flex;
@@ -51,8 +45,6 @@ body {
   align-items: center;
   justify-content: space-evenly;
   height: 70vh;
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
   flex: 1;
 }
 
@@ -60,7 +52,6 @@ body {
   max-height: 600px;
   max-width: 600px;
 }
-
 
 #results {
   display: flex;
@@ -77,20 +68,8 @@ body {
   text-align: center;
 }
 
-#breeds, #submitButton, input[type="text"] {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-}
-
-/* nav a:hover, .currentPage {
-  border-bottom: 2px #B79E87 solid;
-  transition: .9s;
-} */
-
 footer {
   color: #FFF1EA;
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
   padding: 20px 0;
 }
 
@@ -99,26 +78,12 @@ footer {
   color: #5C3A11;
 }
 
-#welcomeText {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  color:  #FFF5E5;
-  text-shadow: 3px 3px 2px black;
-  padding-top: 10px;
-  padding: 40px;
-}
-
 select {
   width: 400px;
   height: 50px;
   font-size: 20px;
   margin-bottom: 40px;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
   color: #272D35;
 }
 
@@ -336,14 +301,18 @@ h3 {
   background-color: #8d3f09;
 }
 
-
-
 #indexCatHeader, #indexDogHeader {
   position: relative;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#indexCatHeader h1, #indexDogHeader h1{
+  font-size: 8em;
 }
 
 #indexCatHeader {
+  background-image: url('/img/cats.jpg');
   background-position:  25% 30%;
 }
 
@@ -365,6 +334,9 @@ h3 {
   animation-iteration-count: infinite;
 }
 
+
+
+
 @keyframes bouncingArrowAnimation {
   from {
     transform: translate3d(0,0,0);
@@ -374,13 +346,47 @@ h3 {
   }
 }
 
-.topOfPage {
-  background-image: url('/img/dogAndCat.jpg');
-  background-color: black;
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/dogAndCat.jpg");
+  height: 50%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  padding-top: 200px;
-  padding-bottom: 200px;
+  position: relative;
 }
+
+#hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:  #FFF5E5;
+  text-shadow: 3px 3px 2px black;
+}
+
+#dogAndCatPhoto {
+  position: relative;
+}
+
+#logoHeader {
+  display: flex;
+  justify-content: left;
+  color:  #FFF5E5;
+  text-shadow: 3px 3px 2px black;
+}
+
+#logoImg {
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+#logoHeader h3 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
 
