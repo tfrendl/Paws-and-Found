@@ -398,6 +398,7 @@ h3 {
 }
 
 #animal-breed-box-content {
+  position: relative;
   max-width: 75%;
   max-height: 75%;
 }
